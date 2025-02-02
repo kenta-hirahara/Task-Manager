@@ -1,0 +1,90 @@
+In file included from main.cpp:1:
+TaskManager.h:19:24: error: ‘str’ does not name a type
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                        ^~~
+TaskManager.h:19:35: error: expected unqualified-id before ‘&’ token
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                   ^
+TaskManager.h:19:35: error: expected ‘)’ before ‘&’ token
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                 ~                 ^
+      |                                   )
+TaskManager.h:19:35: error: expected ‘;’ at end of member declaration
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                   ^
+      |                                    ;
+TaskManager.h:19:37: error: ‘title’ does not name a type
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                     ^~~~~
+main.cpp: In function ‘int main()’:
+main.cpp:35:2: error: expected ‘}’ at end of input
+   35 | }
+      |  ^
+main.cpp:14:24: note: to match this ‘{’
+   14 |        switch (choice) {
+      |                        ^
+main.cpp:35:2: error: expected ‘}’ at end of input
+   35 | }
+      |  ^
+main.cpp:8:16: note: to match this ‘{’
+    8 |    while(true) {
+      |                ^
+main.cpp:35:2: error: expected ‘}’ at end of input
+   35 | }
+      |  ^
+main.cpp:4:12: note: to match this ‘{’
+    4 | int main() {
+      |            ^
+In file included from TaskManager.cpp:7:
+TaskManager.h:19:24: error: ‘str’ does not name a type
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                        ^~~
+TaskManager.h:19:35: error: expected unqualified-id before ‘&’ token
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                   ^
+TaskManager.h:19:35: error: expected ‘)’ before ‘&’ token
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                 ~                 ^
+      |                                   )
+TaskManager.h:19:35: error: expected ‘;’ at end of member declaration
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                   ^
+      |                                    ;
+TaskManager.h:19:37: error: ‘title’ does not name a type
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                     ^~~~~
+TaskManager.cpp:18:33: error: ‘str’ does not name a type
+   18 | void TaskManager::addTask(const str::string& title, const std::string& description)
+      |                                 ^~~
+TaskManager.cpp:18:44: error: expected unqualified-id before ‘&’ token
+   18 | void TaskManager::addTask(const str::string& title, const std::string& description)
+      |                                            ^
+TaskManager.cpp:18:44: error: expected ‘)’ before ‘&’ token
+   18 | void TaskManager::addTask(const str::string& title, const std::string& description)
+      |                          ~                 ^
+      |                                            )
+TaskManager.cpp:18:46: error: expected initializer before ‘title’
+   18 | void TaskManager::addTask(const str::string& title, const std::string& description)
+      |                                              ^~~~~
+TaskManager.cpp: In member function ‘void TaskManager::removeTask(int)’:
+TaskManager.cpp:26:20: error: ‘remove_if’ is not a member of ‘std’; did you mean ‘remove_cv’?
+   26 |     auto it = std::remove_if(tasks.begin(), tasks.end(),
+      |                    ^~~~~~~~~
+      |                    remove_cv
+TaskManager.h:19:24: error: ‘str’ does not name a type
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                        ^~~
+TaskManager.h:19:35: error: expected unqualified-id before ‘&’ token
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                   ^
+TaskManager.h:19:35: error: expected ‘)’ before ‘&’ token
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                 ~                 ^
+      |                                   )
+TaskManager.h:19:35: error: expected ‘;’ at end of member declaration
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                   ^
+      |                                    ;
+TaskManager.h:19:37: error: ‘title’ does not name a type
+   19 |     void addTask(const str::string& title, const std::string& description);
+      |                                     ^~~~~
