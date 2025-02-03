@@ -1,5 +1,0 @@
-TaskManager.cpp: In member function ‘void TaskManager::updateTask(int, const std::string&, const std::string&, bool)’:
-TaskManager.cpp:43:19: error: ‘struct Task’ has no member named ‘completed’; did you mean ‘is_completed’?
-   43 |             task->completed = completed;
-      |                   ^~~~~~~~~
-      |                   is_completed
