@@ -20,7 +20,7 @@ public:
     void removeTask(int id);
     void updateTask(int id, const std::string& title, const std::string& description, bool is_completed);
     void listTasks() const; //const indicates that listTasks() is a "const member function".
-    void saveToFIle(const std::string& filename) const;
+    void saveToFile(const std::string& filename) const;
     void loadFromFile(const std::string& filename);
 
 private:

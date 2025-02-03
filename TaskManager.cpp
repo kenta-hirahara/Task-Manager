@@ -6,6 +6,7 @@
 
 #include "TaskManager.h"
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <algorithm>
 
@@ -34,6 +35,19 @@ void TaskManager::removeTask(int id)
     }
 }
 
+void TaskManager::updateTask(int id, const std::string& title, const std::string& description, bool is_completed) {
+    for (const auto& task : tasks) {
+        if (task->id == id) {
+            task->title = title;
+            task->description = description;
+            task->is_completed = is_completed;
+            std::cout << "Task updated successfully.\n";
+            return;
+        }
+    }
+    std::cerr << "Task not found.\n";
+}
+
 void TaskManager::listTasks() const
 {
     if (tasks.empty()) {
@@ -48,4 +62,38 @@ void TaskManager::listTasks() const
         
     }
     
+}
+
+void TaskManager::saveToFile(const std::string& filename) const {
+    std::ofstream file(filename);
+    if (!file) {
+        std::cerr << "Error upon saving to file" << std::endl;
+        return;
+    } 
+    for (const auto& task: tasks) {
+        file << task -> id << "|" << task -> title << "|" << task -> description  << "|" << task -> is_completed << std::endl;  
+    }
+    std::cout << "Saved to file." << std::endl;
+}
+
+void TaskManager::loadFromFile(const std::string& filename) {
+    std::ifstream file(filename);
+    if (!file) {
+        std::cerr << "Error upon loading from file" << std::endl;
+        return;
+    } 
+    tasks.clear();
+    std::string line;
+    while (std::getline(file, line)) {
+        int id;
+        std::string title, description;
+        bool is_completed;
+        std::istringstream iss(line);
+        iss >> id >> std::ws;
+        std::getline(iss, title, '|');
+        std::getline(iss, description, '|');
+        iss >> is_completed;
+        tasks.push_back(std::make_unique<Task>(Task{id, title, description, is_completed}));
+    }
+    std::cout << "Tasks loaded from file.\n";
 }
