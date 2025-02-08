@@ -1,6 +1,8 @@
 #ifndef TASK_H
 #define TASK_H
 
+#include <string>
+
 enum class Priority {LOW, MEDIUM, HIGH};
 
 struct Task {
