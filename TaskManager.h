@@ -1,3 +1,9 @@
+/*
+ *  This header file declares the interface of the Task struct and the TaskManager class.
+ *  Other files (main.cpp and TaskManager.cpp) include this file to access the class definition.
+ *  acts as a contract for how TaskManager class behaves.
+ */
+
 #ifndef TASKMANAGER_H
 #define TASKMANAGER_H
 
@@ -27,5 +33,5 @@ private:
     std::vector<std::unique_ptr<Task>> tasks;
     int nextId;
     };
-\
+
 #endif
