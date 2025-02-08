@@ -11,6 +11,7 @@ int main() {
        std::cout << "3. Update task" << std::endl;
        std::cout << "4. List task" << std::endl;
        std::cout << "5. Save task" << std::endl;
+       std::cout << "6. Load task" << std::endl;
        std::cin >> choice;
 
        switch (choice) {
