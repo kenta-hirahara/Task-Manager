@@ -1,4 +1,5 @@
 #include "TaskManager.h"
+#include "Task.h"
 #include <iostream>
 
 int main() {
@@ -10,17 +11,20 @@ int main() {
        std::cout << "2. Remove task" << std::endl;
        std::cout << "3. Update task" << std::endl;
        std::cout << "4. List task" << std::endl;
+       std::cout << "5. Sort task by priority" << std::endl;
        std::cin >> choice;
 
        switch (choice) {
            case 1: {
-                       std::string title, description;
+                       std::string title, description, priority;
                        std::cout << "Enter title: ";
                        std::cin.ignore();
                        std::getline(std::cin, title);
                        std::cout << "Enter description: ";
                        std::getline(std::cin, description);
-                       manager.addTask(title, description);
+                       std::cout << "Enter priority: ";
+                       std::getline(std::cin, priority);
+                       manager.addTask(title, description, std::stoi(priority));
                        break;
                    }
            case 2: {

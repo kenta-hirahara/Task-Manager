@@ -5,10 +5,12 @@
  */
 
 #include "TaskManager.h"
+#include "Task.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>
 #include <algorithm>
+#include "magic_enum.hpp"
 
 /*
 TaskManager::TaskManager() -> constructor
@@ -17,9 +19,9 @@ TaskManager::TaskManager() -> constructor
  */
 TaskManager::TaskManager() : nextId{1} {}
 
-void TaskManager::addTask(const std::string& title, const std::string& description)
+void TaskManager::addTask(const std::string& title, const std::string& description, const int priority_int)
 {
-    tasks.push_back(std::make_unique<Task>(Task{nextId++, title, description, false}));
+    tasks.push_back(std::make_unique<Task>(Task{nextId++, title, description, false, static_cast<Priority>(priority_int)}));
     std::cout << "Task added successfully." << std::endl;
 }
 
@@ -58,10 +60,9 @@ void TaskManager::listTasks() const
         std::cout << std::endl;
         std::cout << "ID: " << task -> id << "\nTitle: " << task -> title
             << "\nDescription: " << task -> description
-            << "\nCompleted: " << (task -> is_completed ? "Yes" : "No") << "\n\n";
-        
+            << "\nCompleted: " << (task -> is_completed ? "Yes" : "No") 
+            << "\nPriority: " << magic_enum::enum_name(task -> priority) << "\n\n";
     }
-    
 }
 
 void TaskManager::saveToFile(const std::string& filename) const {
