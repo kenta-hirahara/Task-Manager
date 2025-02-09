@@ -72,7 +72,11 @@ void TaskManager::saveToFile(const std::string& filename) const {
         return;
     } 
     for (const auto& task: tasks) {
-        file << task -> id << "|" << task -> title << "|" << task -> description  << "|" << task -> is_completed << std::endl;  
+        file << task -> id << "|" 
+             << task -> title << "|" 
+             << task -> description  << "|" 
+             << task -> is_completed << "|" 
+             << magic_enum::enum_name(task -> priority) << std::endl;  
     }
     std::cout << "Saved to file." << std::endl;
 }
@@ -87,14 +91,14 @@ void TaskManager::loadFromFile(const std::string& filename) {
     std::string line;
     while (std::getline(file, line)) {
         int id;
-        std::string title, description;
-        bool is_completed;
+        std::string title, description, is_completed, priority;
         std::istringstream iss(line);
         iss >> id >> std::ws;
         std::getline(iss, title, '|');
         std::getline(iss, description, '|');
-        iss >> is_completed;
-        tasks.push_back(std::make_unique<Task>(Task{id, title, description, is_completed}));
+        std::getline(iss, is_completed, '|');
+        iss >> priority;
+        tasks.push_back(std::make_unique<Task>(Task{id, title, description, stoi(is_completed), static_cast<Priority>(stoi(priority))}));
     }
     std::cout << "Tasks loaded from file.\n";
 }
