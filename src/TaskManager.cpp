@@ -81,6 +81,12 @@ void TaskManager::saveToFile(const std::string& filename) const {
     std::cout << "Saved to file." << std::endl;
 }
 
+bool solve(std::string ip) {
+    bool op;
+    std::istringstream(ip) >> std::boolalpha >> op;
+    return op;
+}
+
 void TaskManager::loadFromFile(const std::string& filename) {
     std::ifstream file(filename);
     if (!file) {
@@ -89,6 +95,7 @@ void TaskManager::loadFromFile(const std::string& filename) {
     } 
     tasks.clear();
     std::string line;
+
     while (std::getline(file, line)) {
         int id;
         std::string title, description, is_completed, priority;
@@ -98,7 +105,8 @@ void TaskManager::loadFromFile(const std::string& filename) {
         std::getline(iss, description, '|');
         std::getline(iss, is_completed, '|');
         iss >> priority;
-        tasks.push_back(std::make_unique<Task>(Task{id, title, description, stoi(is_completed), static_cast<Priority>(stoi(priority))}));
+        tasks.push_back(std::make_unique<Task>(Task{id, title, description, solve(is_completed), static_cast<Priority>(stoi(priority))}));
     }
     std::cout << "Tasks loaded from file.\n";
 }
+
