@@ -4,13 +4,13 @@
    - contains e.g. definitions of member functions
  */
 
-#include "../include/TaskManager.h"
-#include "../include/Task.h"
+#include "TaskManager.h"
+#include "Task.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>
 #include <algorithm>
-#include "../include/magic_enum.hpp"
+#include "magic_enum.hpp"
 
 /*
 TaskManager::TaskManager() -> constructor

@@ -1,3 +1,5 @@
 *.txt
 task_manager
 a.out
+*.gch
+/build/
