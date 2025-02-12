@@ -1,0 +1,2 @@
+add_executable(exec_taskmanager main.cpp)
+target_link_libraries(exec_taskmanager task_management)

@@ -1,5 +1,5 @@
-*.txt
 task_manager
+tasks.txt
 a.out
 *.gch
 /build/
