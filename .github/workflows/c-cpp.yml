@@ -9,7 +9,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      # cache config
+
+    - name: Cache cmake build
+      uses: actions/cache@v3
       with:
       path: build
       key: ${{ runner.os }}-cmake-${{ hashFiles('CMakeLists.txt') }}
