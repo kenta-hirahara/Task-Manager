@@ -62,7 +62,7 @@ int main() {
             case 0:
                 return 0;
             default:
-                std::cerr << "Invalid choice.\n";
+                std::cerr << "Invalid choice." << std::endl;
         }
     }
 }
