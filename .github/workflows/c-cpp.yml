@@ -10,6 +10,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Setup CMake
+      uses: lukka/setup-cmake@v3
+
     - name: Cache cmake build
       uses: actions/cache@v3
       with:
@@ -17,9 +20,6 @@ jobs:
         key: ${{ runner.os }}-cmake-${{ hashFiles('CMakeLists.txt') }}
         restore-keys: |
             ${{ runner.os }}-cmake-
-
-    - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build
 
     - name: Configure CMake
       run: cmake -B build -G Ninja
