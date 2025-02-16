@@ -1,6 +1,16 @@
 #include "TaskManager.h"
 #include <iostream>
 
+enum class MenuOption {
+    ADD_TASK = 1,
+    REMOVE_TASK,
+    UPDATE_TASK,
+    LIST_TASKS,
+    SAVE_TASKS,
+    LOAD_TASKS,
+    EXIT
+};
+
 int main() {
    TaskManager manager;
 
@@ -9,13 +19,15 @@ int main() {
        std::cout << "1. Add task" << std::endl;
        std::cout << "2. Remove task" << std::endl;
        std::cout << "3. Update task" << std::endl;
-       std::cout << "4. List task" << std::endl;
-       std::cout << "5. Save task" << std::endl;
-       std::cout << "6. Load task" << std::endl;
+       std::cout << "4. List tasks" << std::endl;
+       std::cout << "5. Save tasks" << std::endl;
+       std::cout << "6. Load tasks" << std::endl;
        std::cin >> choice;
 
-       switch (choice) {
-           case 1: {
+       MenuOption option = static_cast<MenuOption>(choice);
+
+       switch (option) {
+           case MenuOption::ADD_TASK: {
                        std::string title, description, priority;
                        std::cout << "Enter title: ";
                        std::cin.ignore();
@@ -27,14 +39,14 @@ int main() {
                        manager.addTask(title, description, std::stoi(priority));
                        break;
                    }
-           case 2: {
+           case MenuOption::REMOVE_TASK: {
                        int id;
                        std::cout << "Enter task ID to remove: ";
                        std::cin >> id;
                        manager.removeTask(id);
                        break;
                    }
-           case 3: {
+           case MenuOption::UPDATE_TASK: {
                 int id;
                 std::string title, description;
                 bool is_completed;
@@ -50,16 +62,16 @@ int main() {
                 manager.updateTask(id, title, description, is_completed);
                 break;
             }
-            case 4:
+           case MenuOption::LIST_TASKS:
                 manager.listTasks();
                 break;
-            case 5:
+           case MenuOption::SAVE_TASKS:
                 manager.saveToFile("tasks.txt");
                 break;
-            case 6:
+           case MenuOption::LOAD_TASKS:
                 manager.loadFromFile("tasks.txt");
                 break;
-            case 0:
+           case MenuOption::EXIT:
                 return 0;
             default:
                 std::cerr << "Invalid choice." << std::endl;
