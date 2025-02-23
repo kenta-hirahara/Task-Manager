@@ -25,7 +25,10 @@ jobs:
       run: cmake -B build -G Ninja -DCMAKE_MAKE_PROGRAM=/home/runner/work/_temp/-251648691/ninja
 
     - name: Build
-      run: cmake --build build 
+      run: cmake --build build
+      
+    - name: Verify build output
+      run: ls -l build/
 
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v6
