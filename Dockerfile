@@ -2,6 +2,6 @@ FROM ubuntu:latest
 
 WORKDIR /app
 
-COPY build/test/task-manager /app/task-manager
+COPY build/test/exec_taskmanager /app/exec_taskmanager
 
-CMD ["./task-manager"]
+CMD ["./exec_taskmanager"]
